@@ -1,0 +1,6 @@
+from django.forms import ModelForm
+
+class PlaceHoldForm(ModelForm):
+    class Meta:
+        model = placehold
+        fields = '__all__'

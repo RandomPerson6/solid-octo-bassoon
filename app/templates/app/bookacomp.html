@@ -1,0 +1,14 @@
+{% extends 'app/base.html' %}
+{% block content %}
+    <h1>Book a Computer</h1>
+    <h2>Please read the guidelines below to book a computer:</h2>
+    <ul>
+        <li>To reserve a computer, you must have a valid Greater Sudbury Public Library card and a PIN. If you do not have a PIN, you may obtain one by calling or visiting any location of the Greater Sudbury Public Library. If you are a visitor to Greater Sudbury and would like to access the Internet or a word processing station, Visitors cards are available (with proper identification) from Library staff.</li>
+        <li>You may reserve a computer for a maximum of two hours per day, to ensure that more customers have access to the computers.</li> 
+    </ul>
+<form action="/your-name/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+{% endblock content %}

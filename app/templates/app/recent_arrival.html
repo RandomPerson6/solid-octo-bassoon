@@ -1,0 +1,7 @@
+{% extends 'app/base.html' %}
+{% block content %}
+     {% for post in object_list %}
+        <h1>{{ post.title }}</h1>
+        <h5>{{ post.entered_lib }}</h5>
+     {% endfor %}
+{% endblock content %}

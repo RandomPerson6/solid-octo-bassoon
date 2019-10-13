@@ -1,0 +1,100 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Home - Sudbury Library</title>
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    </head>
+    <body>
+         <div class="grey">
+           <a href="{% url 'home' %}"><h1>Greater Sudbury Public Library</h1></a>
+            <div>
+                <form action="{% url 'libsearch' %}" method="get" accept-charset="utf-8">
+                    <button type="submit">Search</button>
+                    <input type="text" placeholder="Search..." name="q">
+                </form>
+                    <input type="radio" name="options" id="website" value="website" checked>
+                    <label for="website">Website</label>
+                    <input type="radio" name="options" id="catalogue" value="catalogue">
+                    <label for="catalogue">Catalogue</label>
+            </div>
+            <div>
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'a2z' %}">A to Z Services</a>
+                <a href="{% url 'contact' %}">>Contact Us</a>
+                <a href="{% url 'french' %}">>Francais</a>
+            </div>
+         </div>
+        <hr>
+        <div class="navbar">
+        <!--  link: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_dropdown_navbar  -->
+                <div class="dropdown">
+                     <button>About Us</button>
+                         <div class="dropdown-content">
+                             <a href="{% url 'hours&loca' %}">Branch Hours and Contacts</a>
+                             <a href="{% url 'jobopps' %}">Job Opportunities in GSPL</a>
+                             <a href="#">History of GSPL</a>
+                         </div>
+                </div>
+                <div class="dropdown">
+                     <button>Books & Much More</button>
+                         <div class="dropdown-content">
+                             <a href="#">Genealogy</a>
+                             <a href="#">Your Next Great Read</a>
+                             <a href="#">Greater Sudbury Seed Library</a>
+                         </div>
+                </div>
+                <div class="dropdown">
+                     <button>Digital Library</button>
+                         <div class="dropdown-content">
+                             <a href="#">Digital Magazines</a>
+                             <a href="#">Online Learning and Tutorials</a>
+                             <a href="#">Streaming Video</a>
+                         </div>
+                </div>
+                <div class="dropdown">
+                     <button>Programs & Services</button>
+                         <div class="dropdown-content">
+                             <a href="#">A to Z Services</a>
+                             <a href="#">Events Calendar</a>
+                             <a href="{% url 'bookcomp'}">Book a Computer</a>
+                         </div>
+                </div>
+                <div class="dropdown">
+                     <button>What's Hot</button>
+                         <div class="dropdown-content">
+                             <a href="{% url 'recent_arrivals' %}">New Titles</a>
+                             <a href="#">Your Next Great Read</a>
+                         </div>
+                </div>
+                <a href=""><button>My Library Sign-in</button></a>
+        </div> 
+        {% block content %}
+        {% endblock content %}
+        <hr>
+            <div>
+                <h6>Info</h6>
+                <a href=""><p>Contact Us</p></a>
+                <a href=""><p>Site Map</p></a>
+                <a href=""><p>Privacy Policy</p></a>
+            </div>
+            <div>
+                <h6>Links</h6>
+                <a href=""><p>Service Ontario</p></a>
+                <a href=""><p>City of Greater Sudbury</p></a>
+                <a href=""><p>City of Greater Sudbury Archives</p></a>
+                <a href=""><p>Greater Sudbury Heritage Museums</p></a>
+                <a href=""><p>Greater Sudbury Historical Museums</p></a>
+                <a href=""><p>Greater Sudbury Historical Database</p></a>
+                <a href=""><p>INCO Triangle Digital Archives</p></a>
+            </div>
+            <div>
+                <h6>Follow Us</h6>
+                <a href="https://www.facebook.com/GSPLibrary"><p>Facebook</p></a>
+                <a href="https://twitter.com/GSPLibrary"><p>Twitter</p></a>
+                <a href=""><p>RSS</p></a>
+                <a href=""><p>eNews</p></a>
+                <a href="https://www.youtube.com/user/GSPLibrary"><p>Youtube</p></a>
+            </div>
+     
+    </body>
+</html>

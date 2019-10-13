@@ -1,0 +1,7 @@
+<form method="post" action="{% url 'placehold' %}">{% csrf_token %}
+    <input type="text" name="book" placeholder="Book name">
+    <input type="text" name="user" placeholder="User name">
+    <input type="radio" name="activity" value="Checked Out">Checked Out
+    <input type="radio" name="activity" value="Returned">Returned
+    <input type="submit" value="submit" />
+</form>

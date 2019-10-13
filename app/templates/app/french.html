@@ -1,0 +1,38 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Accueil- Sudbury Library</title>
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    </head>
+    <body>
+         <div class="grey">
+           <h1>Bibliotheque Publique Du Grand Sudbury</h1>
+            <div>
+                <form action="">
+                    <button type="submit">Recherche</button>
+                    <input type="text" placeholder="Recherche..." name="search">
+                </form>
+                    <input type="radio" name="options" id="website" value="website" checked>
+                    <label for="website">Site web</label>
+                    <input type="radio" name="options" id="catalogue" value="catalogue">
+                    <label for="catalogue">Catalogue</label>
+            </div>
+            <div>
+                <a href="{% url 'french' %}">Accueil</a>
+                <a href="{% url 'a2zfr' %}">Services de A a Z</a> 
+                <a href="{% url 'contactfr' %}">>Pour Nous Joindre</a>
+                <a href="{% url 'home' %}">English</a>
+            </div>
+        </div>
+        <hr>
+        <a href=""><button>Qui sommes-nous?</button></a>
+        <a href=""><button>Livres, etc.</button></a>
+        <a href=""><button>Bibliotheque electronique</button></a>
+        <a href=""><button>Programmes et services</button></a>
+        <a href=""><button>A la une</button></a>
+        <a href=""><button>Ma Bibliotheque Ouvrir une session</button></a>
+     
+        {% block content %}
+        {% endblock content %}
+    </body>
+</html>

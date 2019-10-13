@@ -1,0 +1,44 @@
+{% extends 'app/base.html' %}
+{% block content %}
+{% load customtags %}
+    <div>
+        <!-- slideshow -->
+        <div>
+            <a href="{% url 'bookcomp' %}"><button>Book a computer</button></a>
+            <a href="{% url 'hours&loca' %}"><button>Hours & Locations</button></a>
+            <a href="{% url 'recent_arrivals' %}"><button>New on the shelf</button></a>
+            <a href="{% url 'getalibcard' %}"><button>Get a Library Card</button></a>
+            <a href="{% url 'howdoi' %}"><button>How do I...</button></a>
+        </div>
+    </div>
+    <div>
+        <div>
+            <div>
+                <a href=""><button>Spotlight</button></a>
+                <a href=""><button>RBdigital</button></a>
+                <a href=""><button>Spanish Lessons</button></a>
+                <a href=""><button>Spinning / Weaving</button></a>
+                <a href=""><button>Canadian Fiction</button></a>
+                <a href=""><button>Check This Out!</button></a>
+           </div>
+           <div>
+               <!-- content -->
+           </div>
+       <div>
+           <div>
+               <h6>Current News:</h6>
+               {% with 5 as n %}
+                   {{ n|substract:3 }}
+               {% endwith %}
+               <!-- content slide -->
+           </div>
+<!--           <form action="" method="post">
+{% comment %}               {% csrf_token %} {% endcomment %}
+               Book: <input type="text" name="book"><br>
+               User: <input type="text" name="user"><br>
+               <input type="submit" value="Post">
+           </form> -->
+       <!-- img of Cantook -->
+       </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,7 @@
+<form method="post">
+{% csrf_token %}
+<li>
+    {{ form.as_ul }}
+</li>
+    <input type="submit" value="Update">
+</form>

@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %}
+{% block content %}
+    <h1>Search Results</h1>
+    {% for post in article %}
+        <div>
+             <div>
+                <img src="{{ post.picture }}" height="140">
+                <h2>{{ post.title }}</h2>
+                <h6>{{ post.content }}</h2>
+                <h6>by {{ post.author }}</h6>
+             </div>
+             <hr>
+             <div>
+                 <h6>{{ post.type }} - {{ post.year }}</h6>
+                 <h6>{{ post.genre }}</h6>
+             {% if request.user.is_staff %}
+                 <a href="{% url 'edit' pk=post.pk %}"><button>Edit</button></a>
+                 <a href="{% url 'delete' pk=post.pk %}"><button>Delete</button></a>
+             {% else %}
+                 <button>Place a Hold</button>
+             {% endif %}
+        </div>
+    {% endfor %}
+{% endblock content %}
