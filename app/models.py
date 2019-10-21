@@ -42,10 +42,16 @@ class Book(models.Model):
 
 class BookActivitie(models.Model):
     book=models.CharField(max_length=100, default=True)
+    location_choices= (
+    ('New Sudbury Branch', 'New Sudbury Branch'),
+    ('Garson Branch', 'Garson Branch'),
+    ('Main', 'Main'),
+    )
+    location=models.CharField(max_length=100, choices=location_choices, default=True)
     user=models.CharField(max_length=100, default=True)
     activity_choices= (
     ('Checked Out', 'Checked Out'),
     ('Returned', 'Returned'),
     )
     activity= models.CharField(max_length=20, choices=activity_choices, default=True)
-
+    date = models.DateTimeField(auto_now_add=True)

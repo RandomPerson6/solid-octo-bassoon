@@ -31,7 +31,10 @@ class BooksAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'author', 'entered_lib', 'modified', 'type')
     list_filter = ['entered_lib']
     search_fields = ['title', 'author']
+
+class BooksActivity(admin.ModelAdmin):
+    list_display = ('id', 'user', 'book', 'location', 'activity', 'date')
 admin.site.register(Book, BooksAdmin)
 admin.site.unregister(User)
-admin.site.register(BookActivitie)
+admin.site.register(BookActivitie, BooksActivity)
 admin.site.register(User, MyUserAdmin)

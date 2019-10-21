@@ -19,3 +19,8 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+.content {
+  display: none;
+  overflow: hidden; 
+}

@@ -60,6 +60,11 @@ class libsearch(ListView):
         object_list = Book.objects.filter(Q(title__icontains=query) | Q(description=query))
 
         return object_list 
+###    def get_queryset(self):
+###        query = self.request.GET.get('q')
+###        object_list = Book.objects.filter(Q(title__icontains=query) | Q(description=query))
+
+###        return object_list 
        # paginator(object_list)
 class recent_arrivals(ListView):
     template_name = 'app/recent_arrival.html'
@@ -109,3 +114,18 @@ class book(DetailView):
     model = Book
     context_object_name = 'book'
     template = "app/book_detail.html"
+
+def form(request):
+    if request.method == 'POST':
+        form = PlaceHoldForm(request.POST)
+        user = request.POST.get('user', '')
+        book = request.POST.get('book', '')
+        location = request.POST.get('location', '')
+        activity = request.POST.get('activity', '')
+        date = request.POST.get('date', '')
+        data = BookActivitie(user = user, book = book, location = location, activity = activity, date = date)
+        data.save()
+        return HttpResponseRedirect(reverse('form'))
+    else:
+        form = PlaceHoldForm()
+    return render(request, 'app/libsearch.html', {'form':form,})

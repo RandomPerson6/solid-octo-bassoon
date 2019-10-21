@@ -17,8 +17,50 @@
                  <a href="{% url 'edit' pk=post.pk %}"><button>Edit</button></a>
                  <a href="{% url 'delete' pk=post.pk %}"><button>Delete</button></a>
              {% else %}
-                 <button>Place a Hold</button>
+                 {% if user.is_authenticated %}
+                     <button class="collapsible">Place a Hold</button>
+                     <div class="content">
+                         <h1>Place a Hold on...</h1>
+                         <h2>{{ post.title }}</h2>
+                         <p>by {{ post.author }}</p>
+                         <form method="post" action="{% url 'form' %}"> {% csrf_token %}
+                             <p>User: </p>
+                             <input type="text" name="user" value="{{ user.username }}" readonly><br />
+                             <p>Book: </p>
+                             <input type="text" name="book" value="{{ post.title }}" readonly><br />
+                             <p>Location: </p>
+                                 <input type="radio" name="location" value="New Sudbury Branch">New Sudbury Branch</option>
+                                 <input type="radio" name="location" value="Garson Branch">Garson Branch
+                                 <input type="radio" name="location" value="Main">Main 
+                             <p>Activity: </p>
+                                 <input type="radio" name="activity" value="Checked Out" checked readonly>Checked Out
+                             <input type="date" value="{% now "jS F Y H:i" %}" readonly >Date
+                             <input type="submit" value="submit" >Confirm Hold
+                         </form>
+                     </div>
+                 {% else %}
+                     <script>
+                         window.location.href = "http://127.0.0.1:8000/app/login"; 
+                        // window.location.href = {% url 'login' %};
+                     </script>
+                 {% endif %}
              {% endif %}
         </div>
     {% endfor %}
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        var content = this.nextElementSibling;
+        if (content.style.display === "block"){
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        } 
+      });
+    }
+</script>
 {% endblock content %}
+
