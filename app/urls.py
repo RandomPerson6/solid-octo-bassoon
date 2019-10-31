@@ -18,5 +18,6 @@ urlpatterns = [
     path('edit/<int:pk>', views.edit.as_view(), name='edit'),
     path('delete/<int:pk>', views.delete.as_view(), name='delete'),
     path('book/<int:pk>', views.book.as_view(), name='detail'),
+    path('form', views.form, name='form'),
 
 ]
