@@ -29,7 +29,7 @@ class Book(models.Model):
     )
     genre= models.CharField(max_length=30, choices=genre_choice, default=True)
 #    = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple,choices=genre_choice)
-    year = models.IntegerField(max_length=2019, default=True)
+    year = models.IntegerField(default=True)
     picture = models.TextField()
     entered_lib = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
